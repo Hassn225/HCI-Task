@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Form Design</title>
+    <style>
+        /* General Reset & Typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for Structure & Alignment */
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Grouping: Fieldsets separate logical sections */
+        fieldset {
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #555;
+            padding: 0 10px;
+            font-size: 0.9em;
+        }
+
+        /* Alignment: Labels and Inputs aligned vertically */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9em;
+        }
+
+        input[type="text"], 
+        input[type="email"],
+        select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        /* Payment Method Grouping */
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        /* Submit Button & White Space */
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* White Space: Generous margins between sections */
+        .section-spacing {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Customer Details</h2>
+        
+        <form action="#" method="POST">
+            
+            <!-- Grouping: Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+            </fieldset>
+
+            <!-- Grouping: Location Details -->
+            <fieldset class="section-spacing">
+                <legend>Location</legend>
+                
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Street address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City Name</label>
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                </div>
+            </fieldset>
+
+            <!-- Grouping: Payment -->
+            <fieldset class="section-spacing">
+                <legend>Payment Method</legend>
+                <div class="payment-options">
+                    <label class="radio-label">
+                        <input type="radio" name="payment" value="card" checked> Credit Card
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="payment" value="paypal"> PayPal
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="payment" value="cash"> Cash on Delivery
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Order</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
